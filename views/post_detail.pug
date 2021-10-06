@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Допис: #{post.title}
+  
+  p #[strong Текст допису:] #{post.content}
+  p #[strong Категорії:] 
+    each val, index in post.lawcategory
+      a(href=val.url) #{val.name}
+      if index < post.lawcategory.length - 1
+        |, 
+
+  div(style='margin-left:20px;margin-top:20px')
+
+  hr
+  p
+    a(href=post.url+'/delete') Видалити Допис
+  p
+    a(href=post.url+'/update') Оновити Допис

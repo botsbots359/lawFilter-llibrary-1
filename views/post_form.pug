@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1 #{title}
+          
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Заголовок:
+      input#title.form-control(type='text', placeholder='Заголовок допису' name='title' required='true' value=(undefined===post ? '' : post.title) )
+    div.form-group
+      label(for='content') Текст:
+      input#summary.form-control(type='textarea', placeholder='Текст допису' name='content' value=(undefined===post ? '' : post.summary) required='true')
+    div.form-group
+      label Категорія:
+      div
+        for lawcategory in lawcategories
+          div(style='display: inline; padding-right:10px;')
+            input.checkbox-input(type='checkbox', name='lawcategory', id=lawcategory._id, value=lawcategory._id, checked=lawcategory.checked )
+            label(for=lawcategory._id) #{lawcategory.name}
+    button.btn.btn-primary(type='submit') Підтвердити
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

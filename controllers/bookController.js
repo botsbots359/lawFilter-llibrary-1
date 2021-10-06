@@ -2,6 +2,7 @@ var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
+var LPCategory = require('../models/lawProjCategory');
 
 const { body,validationResult } = require("express-validator");
 
@@ -24,6 +25,9 @@ exports.index = function(req, res) {
         },
         genre_count: function(callback) {
             Genre.countDocuments({},callback);
+        },
+        lpCategory_count: function(callback) {
+            LPCategory.countDocuments({},callback);
         },
     }, function(err, results) {
         res.render('index', { title: 'Local Library Home', error: err, data: results });

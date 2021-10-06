@@ -23,7 +23,13 @@ html(lang='en')
               li 
                 a(href='/catalog/genres') All genres
               li 
+                a(href='/catalog/list_LPCategories') Всі категорії                
+              li 
+                a(href='/catalog/lawCategories') Всі юр. категорії                                
+              li 
                 a(href='/catalog/bookinstances') All book-instances
+              li 
+                a(href='/catalog/posts') Всі дописи                                
               li 
                 hr
               li 
@@ -34,6 +40,12 @@ html(lang='en')
                 a(href='/catalog/book/create') Create new book
               li 
                 a(href='/catalog/bookinstance/create') Create new book instance (copy)
+              li 
+                a(href='/catalog/lpcategory/create') Створити нову категорію
+              li 
+                a(href='/catalog/lawCategory/create') Створити нову юр. категорію                
+              li 
+                a(href='/catalog/post/create') Створити новий допис
                 
         div(class='col-sm-10')
           block content
